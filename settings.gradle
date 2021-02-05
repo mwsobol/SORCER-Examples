@@ -1,0 +1,17 @@
+rootProject.name = 'sorcer-examples'
+
+include ':coffeemaker'
+include ':exchange'
+include ':greeter'
+include ':pml'
+include ':service'
+include ':sml'
+include ':worker'
+
+project(':coffeemaker').projectDir = "$rootDir/coffeemaker" as File
+project(':exchange').projectDir = "$rootDir/exchange" as File
+project(':greeter').projectDir = "$rootDir/greeter" as File
+project(':pml').projectDir = "$rootDir/pml" as File
+project(':service').projectDir = "$rootDir/service" as File
+project(':sml').projectDir = "$rootDir/sml" as File
+project(':worker').projectDir = "$rootDir/workfer" as File

@@ -1,0 +1,71 @@
+/*
+ * Distribution Statement
+ *
+ * This computer software has been developed under sponsorship of the United States Air Force Research Lab. Any further
+ * distribution or use by anyone or any data contained therein, unless otherwise specifically provided for,
+ * is prohibited without the written approval of AFRL/RQVC-MSTC, 2210 8th Street Bldg 146, Room 218, WPAFB, OH  45433
+ *
+ * Disclaimer
+ *
+ * This material was prepared as an account of work sponsored by an agency of the United States Government. Neither
+ * the United States Government nor the United States Air Force, nor any of their employees, makes any warranty,
+ * express or implied, or assumes any legal liability or responsibility for the accuracy, completeness, or usefulness
+ * of any information, apparatus, product, or process disclosed, or represents that its use would not infringe privately
+ * owned rights.
+ */
+
+apply plugin: 'base'
+
+ext {
+    /* ========================================================
+     * Declare properties for software versionProperties. Many are loaded
+     * from the mstc-modeling distribution
+     * ======================================================== */
+    def versionProps = new Properties()
+
+    sorcerHome = "${rootDir.path}/distribution/sorcer-${sorcerVersion}"
+
+    def sorcerEnvProps = new Properties()
+    File sorcerEnvFile = file("${sorcerHome}/configs/sorcer.env")
+    if (!sorcerEnvFile.exists())
+        sorcerEnvFile = file("configs/sorcer.env")
+    sorcerEnvFile.withReader { reader ->
+        sorcerEnvProps.load(reader)
+    }
+    def sorcerEnv = new ConfigSlurper().parse(sorcerEnvProps)
+    websterPort = sorcerEnv.provider.webster.port
+    websterAddress = sorcerEnv.provider.webster.interface
+    websterUrl = "http://${websterAddress}:${websterPort}"
+
+    file("${sorcerHome}/configs/versions.properties").withReader {reader ->
+        versionProps.load(reader)
+    }
+    groovyVersion = versionProps['groovy.version']
+    rioVersion = versionProps['rio.version']
+    riverVersion = versionProps['river.version']
+    slf4jVersion = versionProps['slf4j.version']
+    logbackVersion = versionProps['logback.version']
+    guavaVersion = versionProps['guava.version']
+    plexusVersion = versionProps['plexus.version']
+
+    rioHome = "${sorcerHome}/rio-${rioVersion}"
+
+    logRuntime = ["org.slf4j:jul-to-slf4j:$slf4jVersion",
+                  "ch.qos.logback:logback-classic:$logbackVersion"]
+
+    policyAll = file("${rootDir.path}/distribution/sorcer-${sorcerVersion}/policy/policy.all").absolutePath
+
+    startClassPath = files("${rioHome}/lib/groovy-all-${groovyVersion}.jar",
+            "${rioHome}/lib/logging/slf4j-api-${slf4jVersion}.jar",
+            "${rioHome}/lib/logging/jul-to-slf4j-${slf4jVersion}.jar",
+            "${rioHome}/lib/logging/logback-core-${logbackVersion}.jar",
+            "${rioHome}/lib/logging/logback-classic-${logbackVersion}.jar",
+            "${rioHome}/lib/logging/rio-logging-support-${rioVersion}.jar",
+            "${rioHome}/lib/rio-platform-${rioVersion}.jar",
+            "${rioHome}/lib/start-${riverVersion}.jar",
+            "${rioHome}/lib/jsk-platform-${riverVersion}.jar")
+
+
+    bootClassPath = files(startClassPath, "${sorcerHome}/lib/sorcer/lib/sorcer-boot-${sorcerVersion}.jar")
+}
+
