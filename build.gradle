@@ -32,6 +32,7 @@ repositories {
 
 apply from: file("${rootDir.path}/gradle/distributions.gradle")
 apply from: file("${rootDir.path}/gradle/projectProperties.gradle")
+apply from: file("${rootDir.path}/gradle/utils.gradle")
 
 subprojects {
     apply plugin: 'maven'
