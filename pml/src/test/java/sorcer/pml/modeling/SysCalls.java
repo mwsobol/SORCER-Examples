@@ -47,8 +47,9 @@ public class SysCalls {
 		String slf4jVersion = System.getProperty("slf4j.version");
 		String logbackVersion = System.getProperty("logback.version");
 		String buildDir = System.getProperty("project.build.dir");
+		String projectVersion = System.getProperty("project.version");
 
-		classPath = buildDir + "/libs/pml-" + sorcerVersion + "-bean.jar" + File.pathSeparator
+		classPath = buildDir + "/libs/pml-" + projectVersion + "-bean.jar" + File.pathSeparator
 				+ Sorcer.getHome() + "/lib/sorcer/lib/sorcer-platform-" + sorcerVersion + ".jar"  + File.pathSeparator
 				+ Sorcer.getHome() + "/lib/logging/slf4j-api-" + slf4jVersion + ".jar"  + File.pathSeparator
 				+ Sorcer.getHome() + "/lib/logging/logback-core-" + logbackVersion + ".jar"  + File.pathSeparator
