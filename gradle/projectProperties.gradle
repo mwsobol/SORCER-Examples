@@ -61,12 +61,14 @@ ext {
             "${rioHome}/lib/logging/jul-to-slf4j-${slf4jVersion}.jar",
             "${rioHome}/lib/logging/logback-core-${logbackVersion}.jar",
             "${rioHome}/lib/logging/logback-classic-${logbackVersion}.jar",
-            "${rioHome}/lib/logging/rio-logging-support-${rioVersion}.jar",
             "${rioHome}/lib/rio-platform-${rioVersion}.jar",
             "${rioHome}/lib/start-${riverVersion}.jar",
             "${rioHome}/lib/jsk-platform-${riverVersion}.jar")
 
 
-    bootClassPath = files(startClassPath, "${sorcerHome}/lib/sorcer/lib/sorcer-boot-${sorcerVersion}.jar")
+    bootClassPath = files(startClassPath,
+            "${sorcerHome}/lib/sorcer/lib/sorcer-boot-${sorcerVersion}.jar",
+            "${sorcerHome}/lib/common/guava-${guavaVersion}.jar"
+    )
 }
 
