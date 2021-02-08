@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package examples.eol
 
 import com.sun.jini.start.ServiceDescriptor
 import org.rioproject.config.Component
@@ -33,6 +32,7 @@ class StartAll {
         SecureEnv.setup()
     }
 
+    @SuppressWarnings("unused")
     ServiceDescriptor[] getServiceDescriptors() {
         String riverVersion = System.getProperty("river.version")
         String sorcerVersion = System.getProperty("sorcer.version")
@@ -42,7 +42,7 @@ class StartAll {
 
         String relativeRepoPath = System.getProperty("local.repo.path")
         String projectBuildDir = System.getProperty("project.dir")
-        String buildLibPath = "${projectBuildDir}/build/libs";
+        String buildLibPath = "${projectBuildDir}/build/libs"
         String configPath = "${projectBuildDir}/configs"
         String projectVersion = System.getProperty("project.version")
 
