@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-//version = sorcerVersion
-
 jar {
 	manifest {
 		attributes("Implementation-Title": "Service Modeling Language (SML) Arithmetic Service",

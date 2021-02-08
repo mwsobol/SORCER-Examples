@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 allprojects {
     group = 'org.sorcer.examples'
     version = '1.0'
