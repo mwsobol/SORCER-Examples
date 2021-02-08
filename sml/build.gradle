@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-version = sorcerVersion
+//version = sorcerVersion
 
 jar {
 	manifest {
@@ -60,8 +60,8 @@ dependencies {
 	compile "org.sorcer:sorcer-platform:${sorcerVersion}"
 	compile "org.sorcer:sorcer-lib:${sorcerVersion}"
 	compile "org.sorcer:sos-db-prv:${sorcerVersion}"
-    testCompile "org.sorcer::sorcer-test:${sorcerVersion}"
-	testRuntime "com.google.guava:guava:${guavaVersion}"
+    testCompile "org.sorcer:sorcer-test:${sorcerVersion}"
+	compile "com.google.guava:guava:${guavaVersion}"
     testRuntime logRuntime
 }
 
@@ -84,13 +84,15 @@ install.dependsOn(['arithmeticDlJar', 'arithmeticPrvUiJar', 'arithmeticReqJar'])
 build.dependsOn(install)
 
 def repoPath() {
-    return "org/sorcer/sml/${version}"
+	"${project.group.replace(".", "/")}/${project.name}/${version}"
 }
 
 bootme {
     starterConfig = file("${projectDir.path}/configs/StartAll.groovy")
-    systemProperties = ["relative.repo.path" : repoPath(), "webster.url" : websterUrl]
-//  spawn = false
+    systemProperties = ["relative.repo.path" : repoPath(),
+						"webster.url" : websterUrl,
+						"project.version" : project.version]
+  //spawn = false
 //	debug = true
 }
 

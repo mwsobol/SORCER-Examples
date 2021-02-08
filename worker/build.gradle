@@ -1,4 +1,4 @@
-version = sorcerVersion
+
 
 jar {
 	manifest {
@@ -53,13 +53,14 @@ dependencies {
 }
 
 def repoPath() {
-	return "org/sorcer/worker/${version}"
+	"${project.group.replace(".", "/")}/${project.name}/${version}"
 }
 
 bootme {
 	starterConfig = file("${projectDir.path}/configs/StartAll.groovy")
     systemProperties = ["local.repo.path" : repoPath(),
                         "project.dir" : "${project.projectDir.path}",
+						"project.version" : project.version,
 						"webster.url" : websterUrl]
     spawn = true
 }

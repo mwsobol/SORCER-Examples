@@ -33,7 +33,7 @@ import static sorcer.so.operator.*;
  * @author Mike Sobolewski
  */
 @RunWith(SorcerTestRunner.class)
-@ProjectContext("examples/sml")
+@ProjectContext("sml")
 public class  LocalBlockExertions implements SorcerConstants {
 	private final static Logger logger = LoggerFactory.getLogger(LocalBlockExertions.class);
 

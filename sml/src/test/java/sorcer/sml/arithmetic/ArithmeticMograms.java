@@ -30,7 +30,7 @@ import static sorcer.so.operator.*;
  * @author Mike Sobolewski
  */
 @RunWith(SorcerTestRunner.class)
-@ProjectContext("examples/sml")
+@ProjectContext("sml")
 public class ArithmeticMograms {
 	private final static Logger logger = LoggerFactory.getLogger(ArithmeticMograms.class);
 	private Morpher mFi1Morpher;

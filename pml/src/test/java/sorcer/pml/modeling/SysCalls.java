@@ -1,5 +1,6 @@
 package sorcer.pml.modeling;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -34,28 +35,32 @@ import static sorcer.so.operator.*;
  * @author Mike Sobolewski
  */
 @RunWith(SorcerTestRunner.class)
-@ProjectContext("examples/pml")
+@ProjectContext("pml")
 public class SysCalls {
+	private String classPath;
 	private final static Logger logger = LoggerFactory.getLogger(SysCalls.class);
 
-	@Test
-	public void systemCmdInvoker() throws Exception {
+	@Before
+	public void createClasspath() {
 		String riverVersion = System.getProperty("river.version");
 		String sorcerVersion = System.getProperty("sorcer.version");
 		String slf4jVersion = System.getProperty("slf4j.version");
 		String logbackVersion = System.getProperty("logback.version");
 		String buildDir = System.getProperty("project.build.dir");
 
-        String cp = buildDir + "/libs/pml-" + sorcerVersion + "-bean.jar" + File.pathSeparator
-        		+ Sorcer.getHome() + "/lib/sorcer/lib/sorcer-platform-" + sorcerVersion + ".jar"  + File.pathSeparator
+		classPath = buildDir + "/libs/pml-" + sorcerVersion + "-bean.jar" + File.pathSeparator
+				+ Sorcer.getHome() + "/lib/sorcer/lib/sorcer-platform-" + sorcerVersion + ".jar"  + File.pathSeparator
 				+ Sorcer.getHome() + "/lib/logging/slf4j-api-" + slf4jVersion + ".jar"  + File.pathSeparator
 				+ Sorcer.getHome() + "/lib/logging/logback-core-" + logbackVersion + ".jar"  + File.pathSeparator
 				+ Sorcer.getHome() + "/lib/logging/logback-classic-" + logbackVersion + ".jar"  + File.pathSeparator
 				+ Sorcer.getHome() + "/lib/river/jsk-platform-" + riverVersion + ".jar"  + File.pathSeparator
 				+ Sorcer.getHome() + "/lib/river/jsk-lib-" + riverVersion + ".jar ";
+	}
 
+	@Test
+	public void systemCmdInvoker() throws Exception {
 		ServiceInvoker cmd = cmdInvoker("volume",
-				"java -cp  " + cp + Volume.class.getName() + " cylinder");
+				"java -cp  " + classPath + Volume.class.getName() + " cylinder");
 
 		EntryModel pm = entModel(operator.prc(cmd),
 				val("x", 10.0), val("y"),
@@ -81,25 +86,11 @@ public class SysCalls {
 
     @Test
     public void systemCall() throws Exception {
-        String riverVersion = System.getProperty("river.version");
-        String sorcerVersion = System.getProperty("sorcer.version");
-        String slf4jVersion = System.getProperty("slf4j.version");
-        String logbackVersion = System.getProperty("logback.version");
-        String buildDir = System.getProperty("project.build.dir");
-
-        String cp = buildDir + "/libs/pml-" + sorcerVersion + "-bean.jar" + File.pathSeparator
-                + Sorcer.getHome() + "/lib/sorcer/lib/sorcer-platform-" + sorcerVersion + ".jar"  + File.pathSeparator
-                + Sorcer.getHome() + "/lib/logging/slf4j-api-" + slf4jVersion + ".jar"  + File.pathSeparator
-                + Sorcer.getHome() + "/lib/logging/logback-core-" + logbackVersion + ".jar"  + File.pathSeparator
-                + Sorcer.getHome() + "/lib/logging/logback-classic-" + logbackVersion + ".jar"  + File.pathSeparator
-                + Sorcer.getHome() + "/lib/river/jsk-platform-" + riverVersion + ".jar"  + File.pathSeparator
-                + Sorcer.getHome() + "/lib/river/jsk-lib-" + riverVersion + ".jar ";
-
         Model pm = entModel(val("x", 10.0), args("y"),
 				prc("multiply", invoker("x * y", args("x", "y"))),
 				prc("add", invoker("x + y", args("x", "y"))));
 
-        SysCall caller = sysCall("volume", cxt(val("cmd", "java -cp  " + cp + Volume.class.getName()),
+        SysCall caller = sysCall("volume", cxt(val("cmd", "java -cp  " + classPath + Volume.class.getName()),
                 inVal("cylinder"), outVal("cylinder/volume"), outVal("cylinder/radius"),
 				outVal("cylinder/height")));
         add(pm, caller);
@@ -122,22 +113,8 @@ public class SysCalls {
 
 	@Test
 	public void systemCallerTask() throws Exception {
-		String riverVersion = property("river.version");
-		String sorcerVersion = property("sorcer.version");
-		String slf4jVersion = property("slf4j.version");
-		String logbackVersion = property("logback.version");
-		String buildDir = property("project.build.dir");
-
-		String cp = buildDir + "/libs/pml-" + sorcerVersion + "-bean.jar" + File.pathSeparator
-				+ Sorcer.getHome() + "/lib/sorcer/lib/sorcer-platform-" + sorcerVersion + ".jar"  + File.pathSeparator
-				+ Sorcer.getHome() + "/lib/logging/slf4j-api-" + slf4jVersion + ".jar"  + File.pathSeparator
-				+ Sorcer.getHome() + "/lib/logging/logback-core-" + logbackVersion + ".jar"  + File.pathSeparator
-				+ Sorcer.getHome() + "/lib/logging/logback-classic-" + logbackVersion + ".jar"  + File.pathSeparator
-				+ Sorcer.getHome() + "/lib/river/jsk-platform-" + riverVersion + ".jar"  + File.pathSeparator
-				+ Sorcer.getHome() + "/lib/river/jsk-lib-" + riverVersion + ".jar ";
-
 		Task callerTask = task("volume", sig("exec", SysCaller.class),
-						cxt(val("cmd", "java -cp  " + cp + Volume.class.getName()),
+						cxt(val("cmd", "java -cp  " + classPath + Volume.class.getName()),
 								inVal("cylinder"), outVal("cylinder/volume"), outVal("cylinder/radius"),
 								outVal("cylinder/height")));
 
@@ -150,30 +127,17 @@ public class SysCalls {
 
 	@Test
 	public void systemCaller() throws Exception {
-		String riverVersion = System.getProperty("river.version");
-		String sorcerVersion = System.getProperty("sorcer.version");
-		String slf4jVersion = System.getProperty("slf4j.version");
-		String logbackVersion = System.getProperty("logback.version");
-		String buildDir = System.getProperty("project.build.dir");
-
-		String cp = buildDir + "/libs/pml-" + sorcerVersion + "-bean.jar" + File.pathSeparator
-				+ Sorcer.getHome() + "/lib/sorcer/lib/sorcer-platform-" + sorcerVersion + ".jar"  + File.pathSeparator
-				+ Sorcer.getHome() + "/lib/logging/slf4j-api-" + slf4jVersion + ".jar"  + File.pathSeparator
-				+ Sorcer.getHome() + "/lib/logging/logback-core-" + logbackVersion + ".jar"  + File.pathSeparator
-				+ Sorcer.getHome() + "/lib/logging/logback-classic-" + logbackVersion + ".jar"  + File.pathSeparator
-				+ Sorcer.getHome() + "/lib/river/jsk-platform-" + riverVersion + ".jar"  + File.pathSeparator
-				+ Sorcer.getHome() + "/lib/river/jsk-lib-" + riverVersion + ".jar ";
-
 		Model sm = reqModel(val("x", 10.0), val("y"),
 				prc("multiply", invoker("x * y", args("x", "y"))),
 				prc("add", invoker("x + y", args("x", "y"))),
 				result("cylinder/volume"),
 				req("volume", sig("exec", SysCaller.class,
 //				fxn("volume", sig("exec", SysCallerProvider.class,
-						cxt(val("cmd", "java -cp  " + cp + Volume.class.getName()),
+						cxt(val("cmd", "java -cp  " + classPath + Volume.class.getName()),
 								inVal("cylinder"),
 								outVal("cylinder/volume"), outVal("cylinder/radius"), outVal("cylinder/height")))));
 
+		Object o = exec(sm, "volume");
 		String volume = (String) exec(sm, "volume");
 		logger.info("volume: " + volume);
 		assertTrue(volume.equals("37.69911184307752"));
@@ -190,27 +154,13 @@ public class SysCalls {
 
 	@Test
 	public void systemCallerWithTypes() throws Exception {
-		String riverVersion = System.getProperty("river.version");
-		String sorcerVersion = System.getProperty("sorcer.version");
-		String slf4jVersion = System.getProperty("slf4j.version");
-		String logbackVersion = System.getProperty("logback.version");
-		String buildDir = System.getProperty("project.build.dir");
-
-		String cp = buildDir + "/libs/pml-" + sorcerVersion + "-bean.jar" + File.pathSeparator
-				+ Sorcer.getHome() + "/lib/sorcer/lib/sorcer-platform-" + sorcerVersion + ".jar"  + File.pathSeparator
-				+ Sorcer.getHome() + "/lib/logging/slf4j-api-" + slf4jVersion + ".jar"  + File.pathSeparator
-				+ Sorcer.getHome() + "/lib/logging/logback-core-" + logbackVersion + ".jar"  + File.pathSeparator
-				+ Sorcer.getHome() + "/lib/logging/logback-classic-" + logbackVersion + ".jar"  + File.pathSeparator
-				+ Sorcer.getHome() + "/lib/river/jsk-platform-" + riverVersion + ".jar"  + File.pathSeparator
-				+ Sorcer.getHome() + "/lib/river/jsk-lib-" + riverVersion + ".jar ";
-
 		Model sm = reqModel(val("x", 10.0), val("y"),
 				ent("multiply", invoker("x * y", args("x", "y"))),
 				ent("add", invoker("x + y", args("x", "y"))),
 				result("cylinder/volume"),
 				req("volume", sig("exec", SysCallerProvider.class,
 //				fxn("volume", sig("exec", SysCaller.class,
-						cxt(val("cmd", "java -cp  " + cp + Volume.class.getName()),
+						cxt(val("cmd", "java -cp  " + classPath + Volume.class.getName()),
 								inVal("cylinder", Arg.class),
 								outVal("cylinder/volume", double.class),
 								outVal("cylinder/radius", double.class),

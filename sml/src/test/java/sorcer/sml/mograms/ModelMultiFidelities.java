@@ -36,7 +36,7 @@ import static sorcer.so.operator.*;
  * y Mike Sobolewski on 10/26/15.
  */
 @RunWith(SorcerTestRunner.class)
-@ProjectContext("examples/sml")
+@ProjectContext("sml")
 public class ModelMultiFidelities {
 
     private final static Logger logger = LoggerFactory.getLogger(ModelMultiFidelities.class);

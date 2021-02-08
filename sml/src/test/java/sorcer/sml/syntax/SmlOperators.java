@@ -33,7 +33,7 @@ import static sorcer.so.operator.exert;
  */
 @SuppressWarnings({ "rawtypes", "unchecked" })
 @RunWith(SorcerTestRunner.class)
-@ProjectContext("examples/sml")
+@ProjectContext("sml")
 public class SmlOperators {
 
 	private final static Logger logger = LoggerFactory.getLogger(SmlOperators.class.getName());

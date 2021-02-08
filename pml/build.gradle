@@ -1,6 +1,4 @@
 
-version = sorcerVersion
-
 jar {
 	manifest {
 		attributes("Implementation-Title": "SORCER Volume service bean", "Implementation-Version": version)
@@ -54,7 +52,9 @@ def repoPath() {
 
 bootme {
 	starterConfig = file("${projectDir.path}/configs/StartAll.groovy")
-	systemProperties = ["local.repo.path" : repoPath(), "webster.url" : websterUrl]
+	systemProperties = ["local.repo.path" : repoPath(),
+						"webster.url" : websterUrl,
+						"project.version": project.version]
 //	spawn = false
 //	debug = true
 }

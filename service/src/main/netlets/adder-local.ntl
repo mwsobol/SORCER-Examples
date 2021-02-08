@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-@Load(group='org.sorcer', module='adder', version='${sorcer.version}', classifier='prv')
+@Load(group='org.sorcer.examples', module='adder', version='${sorcer.version}', classifier='prv')
 
 import sorcer.provider.adder.impl.AdderImpl
 

@@ -44,6 +44,7 @@ class StartAll {
         String projectBuildDir = System.getProperty("project.dir")
         String buildLibPath = "${projectBuildDir}/build/libs";
         String configPath = "${projectBuildDir}/configs"
+        String projectVersion = System.getProperty("project.version")
 
         Logger logger = LoggerFactory.getLogger("StartAll")
         logger.info("projectBuildDir: {}", projectBuildDir)
@@ -52,19 +53,19 @@ class StartAll {
         def descriptors = []
         ["worker1", "worker2", "worker3"].each { provider ->
             def configArg = ["${configPath}/${provider}-prv.config"]
-            def codebase = "${relativeRepoPath}/worker-${sorcerVersion}-dl.jar sorcer-dl-${sorcerVersion}.jar sorcer-ui-${sorcerVersion}.jar jsk-dl-${riverVersion}.jar"
+            def codebase = "${relativeRepoPath}/worker-${projectVersion}-dl.jar sorcer-dl-${sorcerVersion}.jar sorcer-ui-${sorcerVersion}.jar jsk-dl-${riverVersion}.jar"
 
             if (provider.indexOf("bean") > 0)
                 descriptors << new SorcerServiceDescriptor(codebase,
                         policy,
-                        "${buildLibPath}/worker-${sorcerVersion}-prv.jar",
+                        "${buildLibPath}/worker-${projectVersion}-prv.jar",
                         "sorcer.core.provider.ServiceTasker",
                         useHttps,
                         configArg as String[])
             else
                 descriptors << new SorcerServiceDescriptor(codebase,
                         policy,
-                        "${buildLibPath}/worker-${sorcerVersion}-prv.jar",
+                        "${buildLibPath}/worker-${projectVersion}-prv.jar",
                         "sorcer.worker.provider.impl.WorkerProvider",
                         useHttps,
                         configArg as String[])

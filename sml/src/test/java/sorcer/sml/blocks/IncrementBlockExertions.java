@@ -25,7 +25,7 @@ import static sorcer.so.operator.exec;
  * @author Mike Sobolewski
  */
 @RunWith(SorcerTestRunner.class)
-@ProjectContext("examples/sml")
+@ProjectContext("sml")
 public class IncrementBlockExertions implements SorcerConstants {
 	private final static Logger logger = LoggerFactory.getLogger(IncrementBlockExertions.class);
 

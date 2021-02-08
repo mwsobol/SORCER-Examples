@@ -20,7 +20,7 @@ import static sorcer.so.operator.*;
  * @author Mike Sobolewski
  */
 @RunWith(SorcerTestRunner.class)
-@ProjectContext("examples/sml")
+@ProjectContext("sml")
 public class ContextFidelity {
 	private final static Logger logger = LoggerFactory.getLogger(ContextFidelity.class);
 

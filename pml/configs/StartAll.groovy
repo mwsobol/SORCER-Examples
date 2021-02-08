@@ -43,6 +43,7 @@ class StartAll {
         String projectBuildDir = System.getProperty("project.build.dir")
         String buildLibPath = "${projectBuildDir}/libs"
         String configPath = "${projectBuildDir}/../configs"
+        String projectVersion = System.getProperty("project.version")
 
         def descriptors = []
         def configArg = ["${configPath}/entmodel-prv.config"]
@@ -50,7 +51,7 @@ class StartAll {
 
         descriptors << new SorcerServiceDescriptor(codebase,
                 policy,
-                "${buildLibPath}/pml-${sorcerVersion}-model.jar",
+                "${buildLibPath}/pml-${projectVersion}-model.jar",
                 "sorcer.core.provider.ServiceTasker",
                 useHttps,
                 configArg as String[])

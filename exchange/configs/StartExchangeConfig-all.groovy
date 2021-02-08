@@ -41,15 +41,16 @@ class StartAll {
         String projectBuildDir = System.getProperty("project.build.dir")
         String buildLibPath = "${projectBuildDir}/libs";
         String configPath = "${projectBuildDir}/../configs"
+        String projectVersion = System.getProperty("project.version")
 
         def descriptors = []
         ["exchange", "smart-exchange"].each { provider ->
             def configArg = ["${configPath}/${provider}-prv.config"]
-            def codebase = "${relativeRepoPath}/exchange-${sorcerVersion}-prv.jar sorcer-dl-${sorcerVersion}.jar sorcer-ui-${sorcerVersion}.jar jsk-dl-${riverVersion}.jar"
+            def codebase = "${relativeRepoPath}/exchange-${projectVersion}-prv.jar sorcer-dl-${sorcerVersion}.jar sorcer-ui-${sorcerVersion}.jar jsk-dl-${riverVersion}.jar"
 
             descriptors << new SorcerServiceDescriptor(codebase,
                     policy,
-                    "${buildLibPath}/exchange-${sorcerVersion}-prv.jar",
+                    "${buildLibPath}/exchange-${projectVersion}-prv.jar",
                     "sorcer.core.provider.ServiceTasker",
                     useHttps,
                     configArg as String[])
@@ -57,11 +58,11 @@ class StartAll {
 
         def provider = "smart-ipcarray";
         def configArg = ["${configPath}/${provider}-prv.config"]
-        def codebase = "${relativeRepoPath}/exchange-${sorcerVersion}-prv.jar sorcer-dl-${sorcerVersion}.jar sorcer-ui-${sorcerVersion}.jar jsk-dl-${riverVersion}.jar"
+        def codebase = "${relativeRepoPath}/exchange-${projectVersion}-prv.jar sorcer-dl-${sorcerVersion}.jar sorcer-ui-${sorcerVersion}.jar jsk-dl-${riverVersion}.jar"
 
         descriptors << new SorcerServiceDescriptor(codebase,
                 policy,
-                "${buildLibPath}/exchange-${sorcerVersion}-prv.jar",
+                "${buildLibPath}/exchange-${projectVersion}-prv.jar",
                 "sorcer.provider.exchange.impl.IpcArrayProviderImpl",
                 useHttps,
                 configArg as String[])

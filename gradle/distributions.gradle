@@ -38,12 +38,6 @@ task installSorcer() {
     outputs.upToDateWhen { false }
 }
 
-clean.doLast {
-    File sorcerDist = new File("${rootDir.path}/distribution/sorcer-${sorcerVersion}")
-    if (sorcerDist.exists()) {
-        sorcerDist.deleteDir()
-    }
-}
 
 
 

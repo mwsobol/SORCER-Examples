@@ -36,16 +36,7 @@ ext {
     def sorcerEnv = new ConfigSlurper().parse(sorcerEnvProps)
     websterPort = sorcerEnv.provider.webster.port
     websterAddress = sorcerEnv.provider.webster.interface
-    useHttps = {
-        def set = System.getProperties().stringPropertyNames()
-        "https" in set
-    }
-
-    if (useHttps()) {
-        websterUrl = "https://${websterAddress}:${websterPort}"
-    } else {
-        websterUrl = "http://${websterAddress}:${websterPort}"
-    }
+    websterUrl = "http://${websterAddress}:${websterPort}"
 
     file("${sorcerHome}/configs/versions.properties").withReader {reader ->
         versionProps.load(reader)

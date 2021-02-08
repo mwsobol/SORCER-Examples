@@ -17,8 +17,8 @@
 
 
 
-@Codebase(group='org.sorcer', module='sml', version='${sorcer.version}', classifier='dl')
-@Load(group='org.sorcer', module='sml', version='${sorcer.version}')
+@Codebase(group='org.sorcer.examples', module='sml', version='${sorcer.version}', classifier='dl')
+@Load(group='org.sorcer.examples', module='sml', version='${sorcer.version}')
 import static sorcer.co.operator.file
 
 String sorcerVersion = property("sorcer.version")

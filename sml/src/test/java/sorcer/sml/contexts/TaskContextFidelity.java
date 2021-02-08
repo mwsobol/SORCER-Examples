@@ -28,7 +28,7 @@ import static sorcer.so.operator.*;
  * @author Mike Sobolewski
  */
 @RunWith(SorcerTestRunner.class)
-@ProjectContext("examples/sml")
+@ProjectContext("sml")
 public class TaskContextFidelity {
 	private final static Logger logger = LoggerFactory.getLogger(TaskContextFidelity.class);
 

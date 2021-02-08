@@ -77,12 +77,7 @@ task bootSorcerRio(type: Exec) {
     args << "ant"
     args << "-f"
     args << "${file("${sorcerDistHome}").path}/bin/rio/boot-sorcer-rio.xml"
-    if (useHttps()) {
-        dependsOn("jetty")
-        args << "useHttps"
-    } else {
-        dependsOn("webster")
-    }
+    dependsOn("webster")
     args << "sorcer.boot.nofork"
     //if(System.properties['sorcer.lite']==null) {
         environment "sorcer.start.all" : true

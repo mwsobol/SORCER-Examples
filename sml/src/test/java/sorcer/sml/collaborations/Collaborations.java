@@ -39,7 +39,7 @@ import static sorcer.so.operator.exert;
  * Created by Mike Sobolewski on 12/27/19.
  */
 @RunWith(SorcerTestRunner.class)
-@ProjectContext("examples/sml")
+@ProjectContext("sml")
 public class Collaborations {
 
     private final static Logger logger = LoggerFactory.getLogger(Collaborations.class);

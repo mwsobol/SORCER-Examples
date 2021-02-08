@@ -33,7 +33,7 @@ import static sorcer.so.operator.*;
  * Created by Mike Sobolewski on 12/22/19.
  */
 @RunWith(SorcerTestRunner.class)
-@ProjectContext("examples/sml")
+@ProjectContext("sml")
 public class Regions {
 
     private final static Logger logger = LoggerFactory.getLogger(Regions.class);

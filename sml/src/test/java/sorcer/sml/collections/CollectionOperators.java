@@ -42,7 +42,7 @@ import static sorcer.so.operator.*;
  */
 @SuppressWarnings({ "unchecked", "rawtypes" })
 @RunWith(SorcerTestRunner.class)
-@ProjectContext("examples/sml")
+@ProjectContext("sml")
 public class CollectionOperators {
 	private final static Logger logger = LoggerFactory.getLogger(CollectionOperators.class);
 

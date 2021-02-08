@@ -28,7 +28,7 @@ import static sorcer.util.exec.ExecUtils.CmdResult;
 /**
  * @author Mike Sobolewski
  */
-@ProjectContext("examples/sml")
+@ProjectContext("sml")
 public class Entries {
 
 	private final static Logger logger = LoggerFactory.getLogger(Entries.class);

@@ -31,7 +31,7 @@ import static sorcer.so.operator.*;
  * @author Mike Sobolewski
  */
 @RunWith(SorcerTestRunner.class)
-@ProjectContext("examples/sml")
+@ProjectContext("sml")
 public class DataModels {
     private final static Logger logger = LoggerFactory.getLogger(ContextModels.class);
 

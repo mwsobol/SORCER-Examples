@@ -31,7 +31,7 @@ import static sorcer.so.operator.*;
  * Created by Mike Sobolewski on 06/24/16.
  */
 @RunWith(SorcerTestRunner.class)
-@ProjectContext("examples/sml")
+@ProjectContext("sml")
 public class RoutineMultiFidelities {
 
     private final static Logger logger = LoggerFactory.getLogger(RoutineMultiFidelities.class);

@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-version = sorcerVersion
-
 dependencies {
     compile "org.sorcer:sorcer-platform:${sorcerVersion}"
     testCompile "org.sorcer:sorcer-test:${sorcerVersion}"

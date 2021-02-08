@@ -14,4 +14,4 @@ project(':greeter').projectDir = "$rootDir/greeter" as File
 project(':pml').projectDir = "$rootDir/pml" as File
 project(':service').projectDir = "$rootDir/service" as File
 project(':sml').projectDir = "$rootDir/sml" as File
-project(':worker').projectDir = "$rootDir/workfer" as File
+project(':worker').projectDir = "$rootDir/worker" as File

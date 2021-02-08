@@ -41,14 +41,14 @@ class StartAll {
         String projectBuildDir = System.getProperty("project.build.dir")
         String buildLibPath = "${projectBuildDir}/libs";
         String configPath = "${projectBuildDir}/../configs"
+        String projectVersion = System.getProperty("project.version")
 
         def descriptors = []
-        def codebase = "${relativeRepoPath}/adder-${sorcerVersion}-dl.jar ${relativeRepoPath}/adder-${sorcerVersion}-ui.jar sorcer-dl-${sorcerVersion}.jar sorcer-ui-${sorcerVersion}.jar jsk-dl-${riverVersion}.jar"
-
+        def codebase = "${relativeRepoPath}/adder-${projectVersion}-dl.jar ${relativeRepoPath}/adder-${projectVersion}-ui.jar sorcer-dl-${sorcerVersion}.jar sorcer-ui-${sorcerVersion}.jar jsk-dl-${riverVersion}.jar"
         def configArg = ["${configPath}/adder-prv.config"]
         descriptors << new SorcerServiceDescriptor(codebase,
                                                    policy,
-                                                   "${buildLibPath}/adder-${sorcerVersion}-prv.jar${File.pathSeparator}${buildLibPath}/adder-${sorcerVersion}-ui.jar",
+                                                   "${buildLibPath}/adder-${projectVersion}-prv.jar${File.pathSeparator}${buildLibPath}/adder-${projectVersion}-ui.jar",
                                                    "sorcer.core.provider.ServiceTasker",
                                                    useHttps,
                                                    configArg as String[])
@@ -56,7 +56,7 @@ class StartAll {
         configArg = ["${configPath}/adder-session-bean.config"]
         descriptors << new SorcerServiceDescriptor(codebase,
                 policy,
-                "${buildLibPath}/adder-${sorcerVersion}-prv.jar${File.pathSeparator}${buildLibPath}/adder-${sorcerVersion}-ui.jar",
+                "${buildLibPath}/adder-${projectVersion}-prv.jar${File.pathSeparator}${buildLibPath}/adder-${projectVersion}-ui.jar",
                 "sorcer.core.provider.SessionProvider",
                 useHttps,
                 configArg as String[])

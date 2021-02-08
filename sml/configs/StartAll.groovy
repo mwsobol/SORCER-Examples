@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package examples.sml.configs
+
 
 import com.sun.jini.start.ServiceDescriptor
 import org.rioproject.config.Component
@@ -38,6 +38,7 @@ class StartAll {
         String policy = System.getProperty("java.security.policy")
         String websterUrl = System.getProperty("webster.url")
         boolean useHttps = websterUrl.startsWith("https")
+        String projectVersion = System.getProperty("project.version")
 
         String relativeRepoPath = System.getProperty("relative.repo.path")
         String projectBuildDir = System.getProperty("project.build.dir")
@@ -48,11 +49,11 @@ class StartAll {
 //        ["arithmetic", "adder", "multiplier", "divider", "subtractor", "averager", "exerter", "contexter"].each { provider ->
         ["adder", "adder-srvname", "multiplier", "divider", "subtractor", "averager", "exerter", "contexter"].each { provider ->
             def configArg = ["${configPath}/${provider}-prv.config"]
-            def codebase = "${relativeRepoPath}/sml-${sorcerVersion}-dl.jar sorcer-dl-${sorcerVersion}.jar sorcer-ui-${sorcerVersion}.jar jsk-dl-${riverVersion}.jar"
+            def codebase = "${relativeRepoPath}/sml-${projectVersion}-dl.jar sorcer-dl-${sorcerVersion}.jar sorcer-ui-${sorcerVersion}.jar jsk-dl-${riverVersion}.jar"
 
             descriptors << new SorcerServiceDescriptor(codebase,
                                                        policy,
-                                                       "${buildLibPath}/sml-${sorcerVersion}.jar",
+                                                       "${buildLibPath}/sml-${projectVersion}.jar",
                                                        "sorcer.core.provider.ServiceTasker",
                                                        useHttps,
                                                        configArg as String[])

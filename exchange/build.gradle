@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-version = sorcerVersion
-
 jar {
     manifest {
         attributes("Implementation-Title": "Service Provider", "Implementation-Version": version)
@@ -73,14 +71,16 @@ artifacts {
 }
 
 def repoPath() {
-    return "org/sorcer/exchange/${version}"
+    "${project.group.replace(".", "/")}/${project.name}/${version}"
 }
 
 bootme {
     description = 'Starts up a service provider'
 //    if (!file("logs").exists()) file("logs").mkdir()
     starterConfig = file("${projectDir.path}/configs/StartExchangeConfig-all.groovy")
-    systemProperties = ["relative.repo.path" : repoPath(), "webster.url" : websterUrl]
+    systemProperties = ["relative.repo.path" : repoPath(),
+                        "webster.url" : websterUrl,
+                        "project.version" : project.version]
 //    spawn = false
 //    debug = true
 }

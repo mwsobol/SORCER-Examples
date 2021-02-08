@@ -17,9 +17,6 @@
 /**
  * Created by Mike Sobolewski on 8/5/15.
  */
-
-version = sorcerVersion
-
 jar {
     manifest {
         attributes("Implementation-Title": "Service Provider Classes",
@@ -83,13 +80,15 @@ artifacts {
 }
 
 def repoPath() {
-    "org/sorcer/coffeemaker/${version}"
+    "${project.group.replace(".", "/")}/${project.name}/${version}"
 }
 
 bootme {
     description = 'Starts up a service provider'
     starterConfig = file("${projectDir.path}/configs/StartCoffeeMakerConfig.groovy")
-    systemProperties = ["relative.repo.path" : repoPath(), "webster.url" : websterUrl]
+    systemProperties = ["relative.repo.path" : repoPath(),
+                        "webster.url" : websterUrl,
+                        "project.version" : project.version]
 //    spawn = false
 //    debug = true
 }

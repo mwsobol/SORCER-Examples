@@ -3,8 +3,6 @@ package sorcer.pml.provider.impl;
 /**
  * @author Mike Sobolewski
  */
-
-import sorcer.ent.operator;
 import sorcer.pml.provider.Cylinder;
 import sorcer.pml.provider.Sphere;
 import sorcer.service.Context;
@@ -21,7 +19,6 @@ import static sorcer.co.operator.val;
 import static sorcer.ent.operator.ent;
 import static sorcer.eo.operator.*;
 import static sorcer.mo.operator.*;
-
 
 @SuppressWarnings("rawtypes")
 public class Volume implements Sphere, Cylinder, Serializable {

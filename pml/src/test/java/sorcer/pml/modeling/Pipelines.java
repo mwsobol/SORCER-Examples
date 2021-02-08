@@ -33,7 +33,7 @@ import static sorcer.so.operator.exec;
  */
 @SuppressWarnings({ "rawtypes", "unchecked" })
 @RunWith(SorcerTestRunner.class)
-@ProjectContext("examples/pml")
+@ProjectContext("pml")
 public class Pipelines {
 	private final static Logger logger = LoggerFactory.getLogger(Pipelines.class);
 

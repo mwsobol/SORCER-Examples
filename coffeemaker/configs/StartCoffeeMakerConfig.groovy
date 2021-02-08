@@ -41,16 +41,17 @@ class StartAll {
         String projectBuildDir = System.getProperty("project.build.dir")
         String buildLibPath = "${projectBuildDir}/libs";
         String configPath = "${projectBuildDir}/../configs"
+        String projectVersion = System.getProperty("project.version")
 
         def descriptors = []
         ["coffeemaker", "delivery"].each { provider ->
             def configArg = ["${configPath}/${provider}-prv.config"]
-            def codebase = "${relativeRepoPath}/coffeemaker-${sorcerVersion}-dl.jar sorcer-dl-${sorcerVersion}.jar sorcer-ui-${sorcerVersion}.jar jsk-dl-${riverVersion}.jar"
+            def codebase = "${relativeRepoPath}/coffeemaker-${projectVersion}-dl.jar sorcer-dl-${sorcerVersion}.jar sorcer-ui-${sorcerVersion}.jar jsk-dl-${riverVersion}.jar"
 
             println "===> useHttps: $useHttps"
             descriptors << new SorcerServiceDescriptor(codebase,
                     policy,
-                    "${buildLibPath}/coffeemaker-${sorcerVersion}-prv.jar",
+                    "${buildLibPath}/coffeemaker-${projectVersion}-prv.jar",
                     "sorcer.core.provider.ServiceTasker",
                     useHttps,
                     configArg as String[])
