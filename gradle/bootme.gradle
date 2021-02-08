@@ -119,7 +119,6 @@ class HaltMePlugin implements Plugin<Project> {
                 def pids = []
                 "jps -v".execute().text.eachLine { line ->
                     if(line.contains("project.id=${project.name}")) {
-                        println "halt: ${project.name}\n $line"
                         pids << line.split()[0]
                     }
                 }
