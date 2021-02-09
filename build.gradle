@@ -23,11 +23,6 @@ allprojects {
     }
 }
 
-repositories {
-    mavenLocal()
-    maven { url "https://repo.repsy.io/mvn/mwsobol/sorcersoft" }
-    mavenCentral()
-}
 
 apply from: file("${rootDir.path}/gradle/distributions.gradle")
 apply from: file("${rootDir.path}/gradle/projectProperties.gradle")
@@ -56,8 +51,12 @@ subprojects {
 
     repositories {
         mavenLocal()
-        jcenter()
-	maven { url "https://dl.bintray.com/dreedyman/maven" }
+        mavenCentral()
+        maven { url "https://repo.repsy.io/mvn/mwsobol/sorcersoft" }
+        flatDir {
+            dirs  "${rioHome}/lib", "${rioHome}/lib-dl"
+        }
     }
+
 }
 
