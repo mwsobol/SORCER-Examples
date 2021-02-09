@@ -27,7 +27,7 @@ import static sorcer.so.operator.*;
  * @author Mike Sobolewski
  */
 @RunWith(SorcerTestRunner.class)
-@ProjectContext("examples/service")
+@ProjectContext("service")
 public class LocalMograms {
 	private final static Logger logger = LoggerFactory.getLogger(LocalMograms.class);
 

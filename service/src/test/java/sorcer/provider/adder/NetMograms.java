@@ -27,7 +27,7 @@ import static sorcer.ent.operator.ent;
  * @author Mike Sobolewski
  */
 @RunWith(SorcerTestRunner.class)
-@ProjectContext("examples/service")
+@ProjectContext("service")
 public class NetMograms {
 	private final static Logger logger = LoggerFactory.getLogger(NetMograms.class.getName());
 	

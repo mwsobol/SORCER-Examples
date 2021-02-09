@@ -23,7 +23,7 @@ import static sorcer.util.StringUtils.*;
  * @author Mike Sobolewski
  */
 @RunWith(SorcerTestRunner.class)
-@ProjectContext("examples/service")
+@ProjectContext("service")
 public class NetletTest {
 
     private final static Logger logger = LoggerFactory.getLogger(NetletTest.class);
@@ -34,8 +34,8 @@ public class NetletTest {
 
     @BeforeClass
     public static void init() throws IOException {
-        baseCmd = new StringBuilder(new java.io.File(Sorcer.getHomeDir(),
-                "bin"+ java.io.File.separator + "nsh").getCanonicalPath()).toString();
+        baseCmd = new File(Sorcer.getHomeDir(),
+                           "bin" + File.separator + "nsh").getCanonicalPath();
 
         netletDir = new File("").getAbsolutePath() + "/src/main/netlets";
     }

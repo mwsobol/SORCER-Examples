@@ -20,7 +20,7 @@ import static sorcer.so.operator.exec;
  * @author Mike Sobolewski
  */
 @RunWith(SorcerTestRunner.class)
-@ProjectContext("examples/service")
+@ProjectContext("service")
 public class AddConsumer {
 	private final static Logger logger = LoggerFactory.getLogger(AddConsumer.class);
 
