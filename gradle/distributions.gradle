@@ -16,6 +16,10 @@
 
 apply plugin: 'base'
 
+repositories {
+    maven { url "https://repo.repsy.io/mvn/mwsobol/sorcersoft" }
+}
+
 configurations {
     distribution
     distribution.extendsFrom(runtime)
