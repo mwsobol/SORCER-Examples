@@ -7,36 +7,35 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.sorcer.test.ProjectContext;
 import org.sorcer.test.SorcerTestRunner;
-import sorcer.arithmetic.provider.impl.*;
+import sorcer.arithmetic.provider.impl.MultiplierImpl;
 import sorcer.core.invoker.Pipeline;
 import sorcer.core.service.Governance;
-import sorcer.mo.operator;
 import sorcer.service.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static sorcer.co.operator.setValue;
 import static sorcer.co.operator.*;
-import static sorcer.ent.operator.*;
-import static sorcer.eo.operator.args;
-import static sorcer.eo.operator.*;
+import static sorcer.ent.operator.invoker;
+import static sorcer.ent.operator.pl;
 import static sorcer.eo.operator.fi;
-import static sorcer.co.operator.get;
 import static sorcer.eo.operator.loop;
 import static sorcer.eo.operator.result;
-import static sorcer.mo.operator.*;
-import static sorcer.mo.operator.model;
+import static sorcer.eo.operator.*;
 import static sorcer.mo.operator.out;
 import static sorcer.mo.operator.value;
-import static sorcer.so.operator.*;
+import static sorcer.mo.operator.*;
+import static sorcer.so.operator.eval;
+import static sorcer.so.operator.exec;
 
 /**
  * Created by Mike Sobolewski on 12/22/19.
  */
 @RunWith(SorcerTestRunner.class)
-@ProjectContext("sml")
-public class Regions {
+@ProjectContext("examples/sml")
+public class Nodes {
 
-    private final static Logger logger = LoggerFactory.getLogger(Regions.class);
+    private final static Logger logger = LoggerFactory.getLogger(Nodes.class);
 
     @Test
     public void opservicePipeline() throws Exception {
@@ -89,7 +88,7 @@ public class Regions {
             loop(condition(cxt -> (double)
                 value(cxt, "lambdaOut") < 500.0), pipeline("cxtn1")));
 
-        Region plDis = rgn(
+        Node plDis = rnd(
             cxtnFi("cxtn1", opspl),
             dspFi("dspt1", plDispatch));
 
@@ -161,7 +160,7 @@ public class Regions {
             mda("analyzer",
                 (Request gov, Context cxt) -> {
                     double x1, x2, x3;
-                    String discName = rgn(cxt);
+                    String discName = rgnn(cxt);
                     if (discName.equals("morphModelDisc")) {
                         setValue(gov, "m1", value(cxt, "morpher3"));
                     } else if (discName.equals("plDisc")) {
@@ -180,10 +179,10 @@ public class Regions {
         Governance gov = (Governance) instance(
             sig("getMultidiscGovernance1", MuiltidisciplinaryBuilder.class));
 
-        logger.info("discipline morphModelDisc name: " + rgn(gov, "morphModelDisc").getName());
-        logger.info("discipline plDisc name: " + rgn(gov, "plDisc").getName());
-        assertEquals(rgn(gov, "morphModelDisc").getName(), "morphModelDisc");
-        assertEquals(rgn(gov, "plDisc").getName(), "plDisc");
+        logger.info("discipline morphModelDisc name: " + name(rgn(gov, "morphModelDisc")));
+        logger.info("discipline plDisc name: " + name(rgn(gov, "plDisc")));
+        assertEquals(name(rgn(gov, "morphModelDisc")), "morphModelDisc");
+        assertEquals(name(rgn(gov, "plDisc")), "plDisc");
 
         Context out = eval(gov, govCxt);
         logger.info("gov morphModelDisc out: " + out(rgn(gov, "morphModelDisc")));
