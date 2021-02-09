@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-@Codebase(group='org.sorcer.examples', module='adder', version='${sorcer.version}', classifier='dl')
+@Codebase(group='org.sorcer.examples', module='adder', version='1.0', classifier='dl')
 import sorcer.provider.adder.Adder
 
 Double v1 = 100.0;
