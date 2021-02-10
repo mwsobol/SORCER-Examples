@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-@Codebase(group='org.sorcer.examples', module='sml', version='${sorcer.version}', classifier='dl')
+@Codebase(group='org.sorcer.examples', module='sml', version='1.0', classifier='dl')
 import sorcer.arithmetic.provider.Adder
 import sorcer.arithmetic.provider.Multiplier
 import sorcer.arithmetic.provider.Subtractor

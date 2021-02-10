@@ -17,12 +17,12 @@
 
 
 
-@Codebase(group='org.sorcer.examples', module='sml', version='${sorcer.version}', classifier='dl')
-@Load(group='org.sorcer.examples', module='sml', version='${sorcer.version}')
+@Codebase(group='org.sorcer.examples', module='sml', version='1.0', classifier='dl')
+@Load(group='org.sorcer.examples', module='sml', version='1.0')
 import static sorcer.co.operator.file
 
 String sorcerVersion = property("sorcer.version")
-String netletArtifact = "org.sorcer:sml:ntl:ha-job-local:$sorcerVersion";
+String netletArtifact = "org.sorcer:sml:ntl:ha-job-local:${sml.version}";
 
 // a provider is a service job declared by the netletArtifact of a file
 provider(sig(file(netletArtifact)))

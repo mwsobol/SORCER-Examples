@@ -1,6 +1,6 @@
 #!/usr/bin/env nsh
 
-@Codebase(group='org.sorcer', module='coffeemaker', version='${sorcer.version}', classifier='dl')
+@Codebase(group='org.sorcer.examples', module='coffeemaker', version='1.0', classifier='dl')
 import edu.pjatk.inn.coffeemaker.CoffeeService
 import edu.pjatk.inn.coffeemaker.Delivery
 

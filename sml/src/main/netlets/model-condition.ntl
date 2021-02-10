@@ -17,8 +17,8 @@
  */
 
 
-@Codebase(group='org.sorcer.examples', module='sml', version='${sorcer.version}', classifier='dl')
-@Load(group='org.sorcer.examples', module='sml', version='${sorcer.version}')
+@Codebase(group='org.sorcer.examples', module='sml', version='1.0', classifier='dl')
+@Load(group='org.sorcer.examples', module='sml', version='1.0')
 import sorcer.arithmetic.provider.impl.AdderImpl
 import sorcer.arithmetic.provider.impl.IncrementerImpl
 
