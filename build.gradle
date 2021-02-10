@@ -23,7 +23,6 @@ allprojects {
     }
 }
 
-
 apply from: file("${rootDir.path}/gradle/distributions.gradle")
 apply from: file("${rootDir.path}/gradle/projectProperties.gradle")
 apply from: file("${rootDir.path}/gradle/utils.gradle")
@@ -56,9 +55,16 @@ subprojects {
         mavenCentral()
         maven { url "https://repo.repsy.io/mvn/mwsobol/sorcersoft" }
         flatDir {
-            dirs  "${rioHome}/lib", "${rioHome}/lib-dl"
+            dirs  "${sorcerHome}/lib/blitz", "${sorcerHome}/lib/common", "${rioHome}/lib", "${rioHome}/lib-dl"
         }
     }
 
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                from components.java
+            }
+        }
+    }
 }
 
