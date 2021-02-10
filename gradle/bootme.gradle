@@ -21,12 +21,14 @@ task bootme(type: BootMe)
 class BootMe extends DefaultTask {
     @InputFile
     File starterConfig
-    @Input @org.gradle.api.tasks.Optional
+    @Input @Optional
     def systemProperties = [:]
-    @Input @org.gradle.api.tasks.Optional
+    @Input @Optional
     boolean spawn = true
-    @Input @org.gradle.api.tasks.Optional
+    @Input @Optional
     boolean debug
+    @Input @Optional
+    def environment = [:]
 
     @TaskAction
     def bootMe() {
@@ -98,6 +100,9 @@ class BootMe extends DefaultTask {
         Map<String, String> env = pb.environment()
         env.put("SORCER_HOME", "${project.sorcerHome}")
         env.put("RIO_HOME", "${project.rioHome}")
+        environment.each { key, value ->
+            env.put(key, value)
+        }
 
         Process process = pb.start()
         if (!spawn) {
