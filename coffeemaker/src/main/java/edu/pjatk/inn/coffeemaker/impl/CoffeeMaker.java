@@ -14,6 +14,7 @@ import java.util.List;
 /**
  * @author   Sarah & Mike
  */
+@SuppressWarnings("unchecked")
 public class CoffeeMaker implements CoffeeMaking, CoffeeService {
 	private final static Logger logger = LoggerFactory.getLogger(CoffeeMaker.class);
 

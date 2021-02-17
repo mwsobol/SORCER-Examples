@@ -37,6 +37,7 @@ import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.rmi.RemoteException;
 
+@SuppressWarnings("unchecked")
 public class ExchangeProviderImpl implements ExchangeRemote, Serializable {
 
     private static Logger logger = LoggerFactory.getLogger(ExchangeProviderImpl.class.getName());

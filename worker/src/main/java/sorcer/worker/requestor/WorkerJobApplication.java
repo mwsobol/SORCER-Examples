@@ -19,7 +19,7 @@ import java.net.InetAddress;
  * @author Mike Sobolewski
  *
  */
-@SuppressWarnings("rawtypes")
+@SuppressWarnings("unchecked")
 public class WorkerJobApplication {
 
 	private final static Logger logger = LoggerFactory.getLogger(WorkerJobApplication.class);

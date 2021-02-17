@@ -13,7 +13,7 @@ import sorcer.service.ServiceSession;
 import java.rmi.RemoteException;
 import java.util.List;
 
-@SuppressWarnings("rawtypes")
+@SuppressWarnings("unchecked")
 public class AdderImpl implements Adder {
 	private ServiceExerter provider;
 	private static Logger logger = LoggerFactory.getLogger(AdderImpl.class.getName());

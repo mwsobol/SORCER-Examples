@@ -14,6 +14,7 @@ import java.rmi.RemoteException;
 /**
  * Created by sobolemw on 8/5/15.
  */
+@SuppressWarnings("unchecked")
 public class ExchangeBean implements Exchange, Serializable {
 
     private static Logger logger = LoggerFactory.getLogger(ExchangeBean.class.getName());

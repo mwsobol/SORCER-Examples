@@ -6,6 +6,7 @@ package edu.pjatk.inn.coffeemaker.impl;
  *
  * Inventory for the coffee maker
  */
+@SuppressWarnings("unchecked")
 public class Inventory {
     
     private static int coffee;

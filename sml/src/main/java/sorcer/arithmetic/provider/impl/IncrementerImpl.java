@@ -9,7 +9,7 @@ import sorcer.service.ContextException;
 
 import java.rmi.RemoteException;
 
-@SuppressWarnings("rawtypes")
+@SuppressWarnings("unchecked")
 public class IncrementerImpl implements Incrementer {
     private static final long serialVersionUID = 1;
 	private Exerter provider;

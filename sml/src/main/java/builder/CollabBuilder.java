@@ -22,6 +22,7 @@ import static sorcer.so.operator.*;
 /**
  * @author Mike Sobolewski
  */
+@SuppressWarnings("unchecked")
 public class CollabBuilder {
 	private final static Logger logger = LoggerFactory.getLogger(CollabBuilder.class);
 	private Morpher mFi1Morpher;

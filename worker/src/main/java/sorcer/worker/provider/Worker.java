@@ -10,7 +10,7 @@ import java.rmi.RemoteException;
  * @author Mike Sobolewski
  *
  */
-@SuppressWarnings("rawtypes")
+@SuppressWarnings("unchecked")
 public interface Worker extends Remote {
 
 	Context sayHi(Context context) throws RemoteException, ContextException;

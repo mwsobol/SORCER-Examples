@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
  * @author Mike Sobolewski
  *
  */
-@SuppressWarnings("rawtypes")
+@SuppressWarnings("unchecked")
 public class WorkerBean implements Worker {
 
 	private Logger logger = LoggerFactory.getLogger(WorkerBean.class.getName());

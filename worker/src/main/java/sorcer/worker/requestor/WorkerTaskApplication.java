@@ -16,7 +16,7 @@ import sorcer.worker.provider.Worker;
  * @author Mike Sobolewski
  *
  */
-@SuppressWarnings("rawtypes")
+@SuppressWarnings("unchecked")
 public class WorkerTaskApplication {
 
 	private final static Logger logger = LoggerFactory.getLogger(WorkerTaskApplication.class);

@@ -20,6 +20,7 @@ import java.rmi.RemoteException;
 import static sorcer.co.operator.get;
 import static sorcer.mo.operator.value;
 
+@SuppressWarnings("unchecked")
 public class AdderDBProvider extends DatabaseProvider implements RemoteAdder {
 	private Arithmometer arithmometer = new Arithmometer();
 	

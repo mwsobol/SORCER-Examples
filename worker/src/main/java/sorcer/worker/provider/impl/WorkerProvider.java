@@ -18,7 +18,7 @@ import java.rmi.RemoteException;
  * @author Mike Sobolewski
  *
  */
-@SuppressWarnings("rawtypes")
+@SuppressWarnings("unchecked")
 public class WorkerProvider extends ServiceTasker implements Worker {
 	private static final Logger logger = LoggerFactory.getLogger(WorkerProvider.class);
 	private String hostName;

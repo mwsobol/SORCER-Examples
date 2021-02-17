@@ -21,7 +21,7 @@ import java.rmi.RemoteException;
 import static sorcer.co.operator.get;
 import static sorcer.mo.operator.value;
 
-@SuppressWarnings("rawtypes")
+@SuppressWarnings("unchecked")
 public class AdderImpl implements Adder, DoubleSrv {
     private static final long serialVersionUID = -8098772962245123252L;
 	private Arithmometer arithmometer = new Arithmometer();

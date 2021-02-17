@@ -10,6 +10,7 @@ import java.rmi.RemoteException;
 /**
  * @author   Sarah & Mike
  */
+@SuppressWarnings("unchecked")
 public class Recipe implements Serializable {
     private String name;
     private int price;

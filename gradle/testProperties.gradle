@@ -60,6 +60,7 @@ task genTestProps() {
         println "Wrote ${propsFile.path}"
     }
 }
+
 genTestProps.onlyIf {
     File propsFile = new File(project.buildDir, 'configs/test.properties')
     if (!propsFile.exists())

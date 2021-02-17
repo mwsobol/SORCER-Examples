@@ -9,6 +9,7 @@ import java.rmi.RemoteException;
 /**
  * Created by Mike Sobolewski on 8/29/15.
  */
+@SuppressWarnings("unchecked")
 public class DeliveryImpl implements Delivery {
 
     @Override

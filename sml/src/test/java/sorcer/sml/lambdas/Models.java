@@ -27,6 +27,7 @@ import static sorcer.so.operator.*;
  */
 @RunWith(SorcerTestRunner.class)
 @ProjectContext("sml")
+@SuppressWarnings("unchecked")
 public class Models {
 	private final static Logger logger = LoggerFactory.getLogger(Models.class);
 

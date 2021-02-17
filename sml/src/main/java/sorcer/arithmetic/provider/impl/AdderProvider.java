@@ -19,6 +19,7 @@ import java.rmi.RemoteException;
 import static sorcer.co.operator.get;
 import static sorcer.mo.operator.value;
 
+@SuppressWarnings("unchecked")
 public class AdderProvider extends ServiceTasker implements RemoteAdder {
 	private Arithmometer arithmometer = new Arithmometer();
 	

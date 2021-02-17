@@ -14,9 +14,9 @@ import static sorcer.mo.operator.*;
  * @author Mike Sobolewski
  *
  */
+@SuppressWarnings("unchecked")
 public class AdderBuilder {
 
-	@SuppressWarnings("rawtypes")
 	public static EntryModel getAdderModel() throws EvaluationException,
 			RemoteException, ContextException {
 

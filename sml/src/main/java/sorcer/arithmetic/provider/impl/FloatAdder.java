@@ -10,6 +10,7 @@ import sorcer.service.MonitorException;
 import java.rmi.RemoteException;
 import java.util.List;
 
+@SuppressWarnings("unchecked")
 public class FloatAdder implements Adder, FloatSrv {
 
     @Override

@@ -20,7 +20,7 @@ import static sorcer.ent.operator.ent;
 import static sorcer.eo.operator.*;
 import static sorcer.mo.operator.*;
 
-@SuppressWarnings("rawtypes")
+@SuppressWarnings("unchecked")
 public class Volume implements Sphere, Cylinder, Serializable {
 	private static final long serialVersionUID = 1L;
 	private final static Logger logger = LoggerFactory.getLogger(Volume.class

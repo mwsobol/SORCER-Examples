@@ -29,6 +29,7 @@ import static sorcer.util.exec.ExecUtils.CmdResult;
  * @author Mike Sobolewski
  */
 @ProjectContext("sml")
+@SuppressWarnings("unchecked")
 public class Entries {
 
 	private final static Logger logger = LoggerFactory.getLogger(Entries.class);
