@@ -26,6 +26,7 @@ import static sorcer.so.operator.exec;
  */
 @RunWith(SorcerTestRunner.class)
 @ProjectContext("sml")
+@SuppressWarnings("unchecked")
 public class IncrementBlockExertions implements SorcerConstants {
 	private final static Logger logger = LoggerFactory.getLogger(IncrementBlockExertions.class);
 

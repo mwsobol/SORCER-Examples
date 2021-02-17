@@ -35,6 +35,7 @@ import static sorcer.so.operator.*;
  */
 @RunWith(SorcerTestRunner.class)
 @ProjectContext("sml")
+@SuppressWarnings("unchecked")
 public class ServiceMograms {
 
     private final static Logger logger = LoggerFactory.getLogger(ServiceMograms.class);

@@ -26,6 +26,7 @@ import static sorcer.so.operator.*;
  */
 @RunWith(SorcerTestRunner.class)
 @ProjectContext("examples/coffeemaker")
+@SuppressWarnings("unchecked")
 public class CoffeeMakingTest {
 	private final static Logger logger = LoggerFactory.getLogger(CoffeeMakingTest.class);
 

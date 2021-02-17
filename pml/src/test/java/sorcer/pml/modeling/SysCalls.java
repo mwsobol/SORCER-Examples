@@ -36,6 +36,7 @@ import static sorcer.so.operator.*;
  */
 @RunWith(SorcerTestRunner.class)
 @ProjectContext("pml")
+@SuppressWarnings("unchecked")
 public class SysCalls {
 	private String classPath;
 	private final static Logger logger = LoggerFactory.getLogger(SysCalls.class);

@@ -36,6 +36,7 @@ import static sorcer.so.operator.*;
  */
 @RunWith(SorcerTestRunner.class)
 @ProjectContext("sml")
+@SuppressWarnings("unchecked")
 public class ModelMultiFidelities {
 
     private final static Logger logger = LoggerFactory.getLogger(ModelMultiFidelities.class);

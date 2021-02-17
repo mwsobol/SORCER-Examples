@@ -40,6 +40,7 @@ import static sorcer.so.operator.exert;
  */
 @RunWith(SorcerTestRunner.class)
 @ProjectContext("sml")
+@SuppressWarnings("unchecked")
 public class Collaborations {
 
     private final static Logger logger = LoggerFactory.getLogger(Collaborations.class);

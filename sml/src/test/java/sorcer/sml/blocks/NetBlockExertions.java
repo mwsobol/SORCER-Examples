@@ -39,6 +39,7 @@ import static sorcer.so.operator.*;
  */
 @RunWith(SorcerTestRunner.class)
 @ProjectContext("sml")
+@SuppressWarnings("unchecked")
 public class NetBlockExertions implements SorcerConstants, Serializable {
 	private final static Logger logger = LoggerFactory.getLogger(NetBlockExertions.class);
 

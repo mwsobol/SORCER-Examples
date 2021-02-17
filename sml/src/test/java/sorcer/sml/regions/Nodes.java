@@ -33,6 +33,7 @@ import static sorcer.so.operator.exec;
  */
 @RunWith(SorcerTestRunner.class)
 @ProjectContext("examples/sml")
+@SuppressWarnings("unchecked")
 public class Nodes {
 
     private final static Logger logger = LoggerFactory.getLogger(Nodes.class);

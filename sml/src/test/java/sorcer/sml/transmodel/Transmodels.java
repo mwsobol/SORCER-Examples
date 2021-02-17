@@ -46,6 +46,7 @@ import static sorcer.so.operator.response;
 //@Ignore
 @RunWith(SorcerTestRunner.class)
 @ProjectContext("vml-tutorial")
+@SuppressWarnings("unchecked")
 public class Transmodels {
 
     private final static Logger logger = LoggerFactory.getLogger(Transmodels.class);
