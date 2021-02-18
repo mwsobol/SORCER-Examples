@@ -28,6 +28,7 @@ import static sorcer.so.operator.*;
  */
 @RunWith(SorcerTestRunner.class)
 @ProjectContext("service")
+@SuppressWarnings("unchecked")
 public class LocalMograms {
 	private final static Logger logger = LoggerFactory.getLogger(LocalMograms.class);
 

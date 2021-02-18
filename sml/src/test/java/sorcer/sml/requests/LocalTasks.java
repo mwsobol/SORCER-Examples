@@ -25,6 +25,7 @@ import static sorcer.so.operator.*;
  */
 @RunWith(SorcerTestRunner.class)
 @ProjectContext("sml")
+@SuppressWarnings("unchecked")
 public class LocalTasks {
 	private final static Logger logger = LoggerFactory.getLogger(LocalTasks.class);
 

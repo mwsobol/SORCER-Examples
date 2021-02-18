@@ -34,6 +34,7 @@ import static sorcer.so.operator.*;
  */
 @RunWith(SorcerTestRunner.class)
 @ProjectContext("sml")
+@SuppressWarnings("unchecked")
 public class ContextModels {
 	private final static Logger logger = LoggerFactory.getLogger(ContextModels.class);
 

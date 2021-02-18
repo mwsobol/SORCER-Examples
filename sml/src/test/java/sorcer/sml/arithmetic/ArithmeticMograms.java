@@ -31,6 +31,7 @@ import static sorcer.so.operator.*;
  */
 @RunWith(SorcerTestRunner.class)
 @ProjectContext("sml")
+@SuppressWarnings("unchecked")
 public class ArithmeticMograms {
 	private final static Logger logger = LoggerFactory.getLogger(ArithmeticMograms.class);
 	private Morpher mFi1Morpher;

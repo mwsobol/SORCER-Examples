@@ -21,6 +21,7 @@ import static sorcer.so.operator.exec;
  */
 @RunWith(SorcerTestRunner.class)
 @ProjectContext("service")
+@SuppressWarnings("unchecked")
 public class AddConsumer {
 	private final static Logger logger = LoggerFactory.getLogger(AddConsumer.class);
 

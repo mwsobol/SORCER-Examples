@@ -28,6 +28,7 @@ import static sorcer.ent.operator.ent;
  */
 @RunWith(SorcerTestRunner.class)
 @ProjectContext("service")
+@SuppressWarnings("unchecked")
 public class NetMograms {
 	private final static Logger logger = LoggerFactory.getLogger(NetMograms.class.getName());
 	

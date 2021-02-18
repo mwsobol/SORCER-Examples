@@ -36,6 +36,7 @@ import static sorcer.so.operator.exert;
  */
 @RunWith(SorcerTestRunner.class)
 @ProjectContext("sml")
+@SuppressWarnings("unchecked")
 public class Signatures {
 	private final static Logger logger = LoggerFactory.getLogger(Signatures.class);
 

@@ -35,6 +35,7 @@ import static sorcer.util.exec.ExecUtils.CmdResult;
  */
 @RunWith(SorcerTestRunner.class)
 @ProjectContext("sml")
+@SuppressWarnings("unchecked")
 public class Services {
 	private final static Logger logger = LoggerFactory.getLogger(Services.class);
 
